@@ -28,6 +28,44 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: 45,
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(246, 243, 242, 1),
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(width: 10,),
+                  Icon(Icons.search, color: Color.fromRGBO(107, 114, 128, 1),),
+                  SizedBox(width: 10,),
+                  Text('Search curated collection...', style: TextStyle(
+                    color: Color.fromRGBO(107, 114, 128, 1),
+                  ),),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 35,),
+          //listview chips
+          Container(
+            height: 35,
+            width: 95,
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(246, 243, 242, 1),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Center(
+              child: Text('All Products', style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+                color: Color.fromRGBO(95, 95, 95, 1),
+              ),),
+            ),
+          )
 
         ],
       ),
