@@ -1,9 +1,12 @@
 import 'package:amozon_api/api_services.dart';
+import 'package:amozon_api/model/product_details_modal.dart';
+import 'package:amozon_api/model/products_model.dart';
 import 'package:flutter/material.dart';
 import 'package:ratings_plus/ratings_plus.dart';
 
 class ProductPage extends StatefulWidget {
-  const ProductPage({super.key});
+  const ProductPage({super.key,required this.productsModal});
+  final ProductsModal productsModal;
 
   @override
   State<ProductPage> createState() => _ProductPageState();

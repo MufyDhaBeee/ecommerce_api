@@ -140,31 +140,31 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     width: 300,
                     height: 500,
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const ProductPage(),
+                    child: GridView.builder(
+                      itemCount: productsData?.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            // Number of columns
+                            crossAxisSpacing: 15,
+                            // Spacing between columns
+                            mainAxisSpacing: 15,
+                            // Spacing between rows
+                            //childAspectRatio: 110/250,   // Width-to-height ratio of cells
+                            childAspectRatio:
+                                80 / 250, // Width-to-height ratio of cells
                           ),
-                        );
-                      },
-                      child: GridView.builder(
-                        itemCount: productsData?.length,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              // Number of columns
-                              crossAxisSpacing: 15,
-                              // Spacing between columns
-                              mainAxisSpacing: 15,
-                              // Spacing between rows
-                              //childAspectRatio: 110/250,   // Width-to-height ratio of cells
-                              childAspectRatio:
-                                  80 / 250, // Width-to-height ratio of cells
-                            ),
-                        itemBuilder: (BuildContext context, int index) {
-                          final product = productsData[index];
-                          return Container(
+                      itemBuilder: (BuildContext context, int index) {
+                        final product = productsData[index];
+                        return InkWell(
+                          onTap: (){
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>  ProductPage(productsModal:productsData[index] ,),
+                              ),
+                            );
+                          },
+                          child: Container(
                             height: 380,
                             width: 150,
                             decoration: BoxDecoration(
@@ -317,9 +317,9 @@ class _HomeState extends State<Home> {
                                 ),
                               ],
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   SizedBox(height: 10),
